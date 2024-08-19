@@ -6,6 +6,8 @@ import ProfileView from "@/views/ProfileView.vue";
 import StatusPesanan from "@/views/StatusPesanan.vue";
 import EditProfile from "@/views/EditProfile.vue";
 import AboutView from "@/views/AboutView.vue";
+import DetailView from "@/views/DetailView.vue";
+import CartView from "@/views/CartView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +46,16 @@ const router = createRouter({
       path: "/tentang-kami",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/detail",
+      name: "detail",
+      component: DetailView,
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      component: CartView,
     },
   ],
 });

@@ -93,7 +93,7 @@ const pass = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .radio-input {
   appearance: none;
   width: 25px;

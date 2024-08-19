@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <div class="font-neue p-10">
     <div class="flex items-center justify-between mb-10">
@@ -10,7 +14,7 @@
       </div>
     </div>
     <div class="flex gap-8 justify-between overflow-x-auto no-scrollbar pb-5">
-      <div class="relative w-[330px] overflow-hidden shrink-0 bg-white shadow-lg rounded-xl">
+      <RouterLink to="/detail" class="relative w-[330px] overflow-hidden shrink-0 bg-white shadow-lg rounded-xl">
         <img class="w-full h-[260px] object-cover" src="../../public/assets/image_populer_2.png" alt="" />
         <div class="flex justify-between items-center px-5 py-3">
           <div class="">
@@ -27,7 +31,7 @@
             <p>DISKON 40%</p>
           </div>
         </div>
-      </div>
+      </RouterLink>
       <div class="relative w-[330px] overflow-hidden shrink-0 bg-white shadow-lg rounded-xl">
         <img class="w-full h-[260px] object-cover" src="../../public/assets/image_populer_3.png" alt="" />
         <div class="flex justify-between items-center px-5 py-3">

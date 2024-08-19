@@ -1,9 +1,9 @@
 <template>
   <div class="fixed top-0 flex justify-between z-50 items-center px-10 bg-primary w-full h-20 text-white font-neue">
-    <div class="">
+    <RouterLink to="/" class="">
       <h1 class="text-4xl -mb-1">ONLINE</h1>
       <p class="text-lg">STORE</p>
-    </div>
+    </RouterLink>
     <div class="flex gap-8 text-[28px]">
       <a class="relative group" href="">
         <p>PRIA</p>
@@ -32,9 +32,9 @@
       <button>
         <img class="w-8" src="../../public/assets/icon_notif.svg" alt="" />
       </button>
-      <button>
+      <RouterLink to="/cart">
         <img class="w-8" src="../../public/assets/icon_cart.svg" alt="" />
-      </button>
+      </RouterLink>
       <RouterLink to="/login">
         <img class="w-8" src="../../public/assets/icon_profile.svg" alt="" />
       </RouterLink>
