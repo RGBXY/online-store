@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 flex justify-between z-50 items-center px-10 bg-primary w-full h-20 text-white font-neue">
+  <div class="fixed top-0 flex justify-between z-40 items-center px-10 bg-primary w-full h-20 text-white font-neue">
     <RouterLink to="/" class="">
       <h1 class="text-4xl -mb-1">ONLINE</h1>
       <p class="text-lg">STORE</p>

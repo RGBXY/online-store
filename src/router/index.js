@@ -8,6 +8,8 @@ import EditProfile from "@/views/EditProfile.vue";
 import AboutView from "@/views/AboutView.vue";
 import DetailView from "@/views/DetailView.vue";
 import CartView from "@/views/CartView.vue";
+import PaymentView from "@/views/PaymentView.vue";
+import HistoryView from "@/views/HistoryView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,16 @@ const router = createRouter({
       path: "/cart",
       name: "cart",
       component: CartView,
+    },
+    {
+      path: "/payment",
+      name: "payment",
+      component: PaymentView,
+    },
+    {
+      path: "/order-history",
+      name: "history",
+      component: HistoryView,
     },
   ],
 });

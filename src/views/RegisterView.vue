@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between px-14 pt-40 pb-20 w-full">
+  <form class="flex justify-between px-14 pt-40 pb-20 w-full">
     <div class="w-[47%] p-8 border border-primary font-neue">
       <h1 class="text-5xl mb-10">registrasi</h1>
       <h1 class="text-3xl mb-4">Nama Anda</h1>
@@ -65,28 +65,14 @@
         <button class="bg-black mb-8 text-white py-3 w-[200px] font-neue text-4xl">registrasi</button>
       </RouterLink>
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 
-const passStat = ref(false);
 
-const day = ref("");
-const month = ref("");
-const year = ref("");
-
-const dayInput = ref(null);
-const monthInput = ref(null);
-const yearInput = ref(null);
-
-const focusNext = (currentValue, nextInputRef) => {
-  if (currentValue.value && currentValue.value.toString().length === 2) {
-    nextInputRef.value.focus();
-  }
-};
 
 const pass = () => {
   passStat.value = !passStat.value;

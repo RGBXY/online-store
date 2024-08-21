@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-32 px-10 mb-20 flex justify-between w-full">
+  <div class="pt-32 px-10 mb-20 flex justify-between w-full h-full min-h-screen">
     <div class="w-[20%]">
       <h1 class="text-[2.5rem] font-neue mb-7">EDIT PROFILE</h1>
       <div class="relative w-[200px]">

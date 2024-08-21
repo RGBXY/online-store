@@ -10,12 +10,12 @@
           <img class="w-6" src="../../public/assets/icon_profile_black.svg" alt="" />
           <h1 class="font-neue text-2xl">AKUN SAYA</h1>
         </div>
-        <a href="">
+        <RouterLink to="/profile">
           <div class="flex items-center gap-3 mb-1">
             <div class="w-2 h-2 bg-secondary rounded-full"></div>
             <h1 class="text-lg text-secondary font-semibold">Profil</h1>
           </div>
-        </a>
+        </RouterLink>
         <RouterLink to="/edit-profile">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-2 h-2 bg-secondary rounded-full"></div>
