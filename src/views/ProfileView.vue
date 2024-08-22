@@ -8,17 +8,22 @@
         <span class="absolute w-full h-1 bg-black transition-all"></span>
       </a>
       <a class="relative group" href="">
-        <p class="font-neue text-3xl text">Daftar Alamat</p>
+        <p class="font-neue text-3xl">Daftar Alamat</p>
         <span class="w-0 absolute group-hover:w-full h-1 bg-black transition-all"></span>
       </a>
     </div>
     <div class="flex justify-between">
       <div class="w-[40%] p-4 border border-primary_border">
-        <img class="mb-3 w-full h-[240px] object-cover" src="../../public/assets/image_kategori_4.png" alt="" />
-        <button class="bg-primary mb-3 text-white py-2 w-full font-neue text-xl">pilih foto</button>
+        <!-- Display the profile image -->
+        <img class="mb-3 w-full h-[240px] object-cover" :src="imageSrc" alt="" />
+        <input @change="handleFileChange" type="file" class="hidden" id="profile-pic" />
+        <button class="bg-primary mb-5 text-white py-2 w-full font-neue text-xl">
+          <label for="profile-pic" class="w-full block text-center cursor-pointer"> pilih foto </label>
+        </button>
         <p class="text-sm text-secondary">Besar file: maksimum 10.000.000 bytes (10 Megabytes). Ekstensi file yang diperbolehkan: .JPG .JPEG .PNG</p>
       </div>
       <div class="w-[60%] px-14">
+        <!-- Display user profile information -->
         <div class="flex justify-between text-xl mb-6 font-medium">
           <p class="text-secondary w-1/2">Nama</p>
           <p class="w-1/2 text-end">Jhon Doe</p>
@@ -45,6 +50,23 @@
 </template>
 
 <script setup>
-import Link from "@/components/Link.vue";
+import { computed } from "vue";
+import { useDummyFncStore } from "@/stores/DummyFnc";
 import ProfileLay from "@/components/ProfileLay.vue";
+
+// Initialize the store
+const dummy = useDummyFncStore();
+
+// Handle file input change event
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    dummy.updateProfileImage(file);
+  }
+};
+
+// Compute the image source URL based on the profile image in the store
+const imageSrc = computed(() => {
+  return dummy.profileImage ? `../../public/assets/${dummy.profileImage}` : "";
+});
 </script>

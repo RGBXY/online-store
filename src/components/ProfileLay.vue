@@ -2,7 +2,7 @@
   <div class="pt-32 px-10 mb-10 flex justify-between w-full h-full">
     <div class="w-[25%]">
       <div class="flex items-center gap-3 w-full mb-4 shadow-md p-4">
-        <img class="rounded-full w-16 h-16" src="../../public/assets/image_kategori_4.png" alt="" />
+        <img class="rounded-full w-16 h-16 object-cover" :src="imageSrc" alt="" />
         <h1 class="font-semibold font-roboto text-xl">Jhon Doe</h1>
       </div>
       <div class="shadow-md mb-10 p-5">
@@ -38,6 +38,7 @@
           <div class="w-2 h-2 bg-secondary rounded-full"></div>
           <h1 class="text-lg text-secondary font-semibold">Promo</h1>
         </a>
+        <Button @click="logout">Logout</Button>
       </div>
     </div>
     <div class="w-[70%] font-roboto border border-primary_border p-7">
@@ -48,4 +49,21 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
+import { useDummyFncStore } from "@/stores/DummyFnc";
+import { storeToRefs } from "pinia";
+import Button from "./Button.vue";
+import { computed } from "vue";
+
+const dummy = useDummyFncStore();
+
+const { profileImage } = storeToRefs(dummy);
+
+const logout = () => {
+  dummy.logout();
+};
+
+// Compute the image source URL based on the profile image in the store
+const imageSrc = computed(() => {
+  return dummy.profileImage ? `../../public/assets/${dummy.profileImage}` : "";
+});
 </script>

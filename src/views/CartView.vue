@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import Button from "@/components/Button.vue";
-</script>
-
 <template>
   <div class="pt-32 px-10 mb-20 flex flex-col w-full h-full min-h-screen font-roboto">
     <h1 class="font-neue text-4xl mb-6">KERANJANG</h1>
@@ -9,22 +5,24 @@ import Button from "@/components/Button.vue";
       <div class="w-[65%]">
         <div class="shadow-md p-3 border mb-7 flex items-center gap-8">
           <input type="checkbox" class="radio-input" value="wanita" name="options" />
-          <p class="font-medium">Pilih Semua <span class="text-secondary">(3 Barang)</span></p>
+          <p class="font-medium">
+            Pilih Semua <span class="text-secondary">({{ totalUniqueProducts }} Barang)</span>
+          </p>
         </div>
-        <div class="p-3 shadow-md mb-6">
+        <div v-for="cart in carts" :key="cart.id" class="p-3 shadow-md mb-6">
           <div class="flex justify-between mb-4">
             <div class="flex items-center gap-14">
-              <input type="checkbox" class="radio-input" value="wanita" name="options" />
-              <h1 class="font-neue text-3xl">DENIM JACKET</h1>
+              <input type="checkbox" class="radio-input" value="1" name="options" />
+              <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
-            <h1 class="font-medium text-xl">Rp.200.000</h1>
+            <h1 class="font-medium text-xl">Rp. {{ cart.harga }}</h1>
           </div>
           <div class="flex justify-between">
             <div class="flex gap-4">
-              <img class="w-[120px] h-[100px] object-cover" src="../../public/assets/image_populer_2.png" alt="" />
+              <img class="w-[120px] h-[100px] object-cover" :src="cart.img" alt="" />
               <div>
-                <h1 class="font-neue text-xl -mb-2">JAKET DENIM JEANS TEBAL PRIA WANITA</h1>
-                <p class="text-secondary font-medium">warna biru, ukuran jaket:XL</p>
+                <h1 class="font-neue text-xl -mb-2">{{ cart.deskripsi }}</h1>
+                <p class="text-secondary font-medium">{{ cart.jenis }}</p>
               </div>
             </div>
             <div class="flex gap-5 items-end justify-end">
@@ -32,11 +30,11 @@ import Button from "@/components/Button.vue";
                 <img src="../../public/assets/icon_trash.svg" alt="" />
               </button>
               <div class="border border-primary py-1 px-2 rounded-lg flex items-center gap-3">
-                <button class="py-2">
+                <button @click="minus(cart)" class="py-2">
                   <img src="../../public/assets/icon_minus.svg" alt="" />
                 </button>
-                <p>1</p>
-                <button class="py-2">
+                <p>{{ cart.jumlah }}</p>
+                <button @click="plus(cart)" class="py-2">
                   <img src="../../public/assets/icon_plus.svg" alt="" />
                 </button>
               </div>
@@ -52,13 +50,13 @@ import Button from "@/components/Button.vue";
         </div>
         <h1 class="font-neue text-2xl mb-1">RINGKASAN PESANAN</h1>
         <div class="flex items-center justify-between mb-4">
-          <p class="text-secondary font-medium">Subtotal (1 barang)</p>
-          <h1 class="font-medium">Rp.200.000</h1>
+          <p class="text-secondary font-medium">Subtotal ({{ total }} barang)</p>
+          <h1 class="font-medium">Rp.{{ totalPrice }}</h1>
         </div>
         <p class="text-secondary font-medium mb-4">Biaya Pengiriman</p>
         <div class="flex items-center justify-between mb-6">
           <p class="font-medium font-neue text-2xl">TOTAL</p>
-          <h1 class="font-semibold">Rp.200.000</h1>
+          <h1 class="font-semibold">Rp.{{ totalPrice }}</h1>
         </div>
         <RouterLink to="/payment">
           <p class="text-sm font-medium text-end">Termasuk PPN, jika berlaku</p>
@@ -68,6 +66,39 @@ import Button from "@/components/Button.vue";
     </div>
   </div>
 </template>
+
+<script setup>
+import Button from "@/components/Button.vue";
+import { useDataStore } from "@/stores/Data";
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
+
+const data = useDataStore();
+const { carts } = storeToRefs(data);
+const totalUniqueProducts = computed(() => carts.value.length);
+
+const plus = (cart) => {
+  cart.jumlah++;
+};
+  
+const minus = (cart) => {
+  if (cart.jumlah > 1) {
+    cart.jumlah--;
+  }
+};
+
+const total = computed(() => {
+  return carts.value.reduce((total, cart) => {
+    return total + cart.jumlah;
+  }, 0);
+});
+
+const totalPrice = computed(() => {
+  return carts.value.reduce((total, cart) => {
+    return total + cart.harga * cart.jumlah;
+  }, 0);
+});
+</script>
 
 <style scoped>
 .radio-input {

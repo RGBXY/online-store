@@ -35,8 +35,9 @@
       <RouterLink to="/cart">
         <img class="w-8" src="../../public/assets/icon_cart.svg" alt="" />
       </RouterLink>
-      <RouterLink to="/login">
-        <img class="w-8" src="../../public/assets/icon_profile.svg" alt="" />
+      <RouterLink :to="userStatus ? '/profile' : '/login'">
+        <img v-if="userStatus" class="h-10 w-10 rounded-full object-cover" :src="imageSrc" alt="" />
+        <img v-else class="h-8" src="../../public/assets/icon_profile.svg" alt="" />
       </RouterLink>
     </div>
   </div>
@@ -44,4 +45,20 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
+import { useDummyFncStore } from "@/stores/DummyFnc";
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
+
+const dummy = useDummyFncStore();
+
+const { userStatus, profileImage } = storeToRefs(dummy);
+
+if (localStorage.getItem("userStatus") === "true") {
+  dummy.userStatus = true;
+}
+
+// Compute the image source URL based on the profile image in the store
+const imageSrc = computed(() => {
+  return dummy.profileImage ? `../../public/assets/${dummy.profileImage}` : "";
+});
 </script>
