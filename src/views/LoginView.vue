@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between px-14 pt-40 pb-20 w-full">
-    <div class="w-[47%] p-8 border border-primary font-neue">
+  <div class="flex flex-col lg:flex-row justify-between px-6 lg:px-14 pt-40 pb-20 w-full">
+    <div class="lg:w-[47%] mb-10 w-full p-8 border border-primary font-neue">
       <h1 class="text-5xl mb-6">LOGIN</h1>
       <p class="font-roboto text-xl mb-7">Masuk dengan alamat e-mail dan kata sandi anda</p>
       <h1 class="text-3xl mb-4">ALAMAT EMAIL</h1>
@@ -14,12 +14,16 @@
         <h1 class="text-3xl mt-1">GOOGLE</h1>
         <img class="w-10" src="../../public/assets/icon_google.svg" alt="" />
       </button>
-      <button class="flex items-center border w-[250px] justify-between border-primary px-5 py-2">
+      <button class="flex items-center border mb-10 w-[250px] justify-between border-primary px-5 py-2">
         <h1 class="text-3xl mt-1">FACEBOOK</h1>
         <img class="w-10" src="../../public/assets/icon_facebook.svg" alt="" />
       </button>
+      <h1 class="text-5xl font-neue mb-2">BUAT AKUN</h1>
+      <RouterLink to="/register">
+        <button class="bg-black mb-8 text-white py-3 w-[200px] font-neue text-4xl">registrasi</button>
+      </RouterLink>
     </div>
-    <div class="w-[47%] font-roboto px-5">
+    <div class="lg:w-[47%] hidden lg:block font-roboto px-5">
       <h1 class="text-5xl font-neue mb-7">BUAT AKUN</h1>
       <p class="text-xl mb-6">Sangat mudah. Masukkan alamat email Anda, isi formulir di halaman berikutnya dan nikmati keuntungan dari memiliki akun, misalnya:</p>
       <div class="flex gap-4 mb-9">

@@ -1,8 +1,8 @@
 <template>
-  <div class="font-neue p-10">
-    <div class="flex items-center justify-between mb-10">
+  <div class="font-neue py-10 px-6 lg:px-10">
+    <div class="flex lg:items-center flex-col lg:flex-row lg:justify-between mb-10">
       <h1 class="text-[40px]">PRODUK TERPOPULER</h1>
-      <div class="flex gap-3 text-xl">
+      <div class="flex gap-3 text-xl overflow-auto no-scrollbar">
         <button class="py-4 rounded-lg px-8 border bg-primary text-white transition-all">TERLARIS</button>
         <button class="py-4 rounded-lg px-8 border border-primary hover:bg-primary focus:bg-primary hover:text-white focus:text-white transition-all">TERBARU</button>
         <button class="py-4 rounded-lg px-8 border border-primary hover:bg-primary focus:bg-primary hover:text-white focus:text-white transition-all">TERMURAH</button>

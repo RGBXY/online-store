@@ -1,23 +1,20 @@
 <template>
-  <div class="pt-32 px-10 mb-20 flex flex-col w-full h-full min-h-screen font-roboto">
+  <div class="pt-32 px-6 lg:px-10 mb-20 flex flex-col w-full h-full min-h-screen font-roboto">
     <h1 class="font-neue text-4xl mb-6">KERANJANG</h1>
-    <div class="flex w-full items-start justify-between">
-      <div class="w-[65%]">
+    <div class="flex w-full flex-col-reverse lg:flex-row items-start justify-between">
+      <div class="lg:w-[65%] w-full">
         <div class="shadow-md p-3 border mb-7 flex items-center gap-8">
           <input type="checkbox" class="radio-input" value="wanita" name="options" />
           <p class="font-medium">
             Pilih Semua <span class="text-secondary">({{ totalUniqueProducts }} Barang)</span>
           </p>
         </div>
-        <div v-for="cart in carts" :key="cart.id" class="p-3 shadow-md mb-6">
-          <div class="flex justify-between mb-4">
+        <div v-for="cart in carts" :key="cart.id" class="p-3 flex lg:flex-row flex-col justify-between shadow-md mb-6">
+          <div class="flex flex-col gap-4 justify-between mb-4">
             <div class="flex items-center gap-14">
               <input type="checkbox" class="radio-input" value="1" name="options" />
               <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
-            <h1 class="font-medium text-xl">Rp. {{ cart.harga }}</h1>
-          </div>
-          <div class="flex justify-between">
             <div class="flex gap-4">
               <img class="w-[120px] h-[100px] object-cover" :src="cart.img" alt="" />
               <div>
@@ -25,6 +22,9 @@
                 <p class="text-secondary font-medium">{{ cart.jenis }}</p>
               </div>
             </div>
+          </div>
+          <div class="flex flex-row items-center lg:flex-col justify-between">
+            <h1 class="font-medium text-xl">Rp. {{ cart.harga }}</h1>
             <div class="flex gap-5 items-end justify-end">
               <button class="mb-1.5">
                 <img src="../../public/assets/icon_trash.svg" alt="" />
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="w-[30%] h-full shadow-md p-4">
+      <div class="lg:w-[30%] mb-9 w-full h-full shadow-md p-4">
         <h1 class="font-neue text-2xl mb-1">LOKASI</h1>
         <div class="flex items-center gap-3 mb-5">
           <img src="../../public/assets/icon_location.svg" alt="" />
@@ -80,7 +80,7 @@ const totalUniqueProducts = computed(() => carts.value.length);
 const plus = (cart) => {
   cart.jumlah++;
 };
-  
+
 const minus = (cart) => {
   if (cart.jumlah > 1) {
     cart.jumlah--;

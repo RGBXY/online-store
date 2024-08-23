@@ -4,6 +4,9 @@ import { useDataStore } from "./Data";
 export const useDummyFncStore = defineStore("dummyFnc", {
   state: () => ({
     userStatus: false,
+    navStatus: false,
+    menuStatus: false,
+    searchStatus: false,
     profileImage: localStorage.getItem("profileImage") || "",
     cartsdat: [],
   }),
@@ -53,6 +56,30 @@ export const useDummyFncStore = defineStore("dummyFnc", {
 
       // Update local state and log the updated array
       this.cartsdat = data.carts;
+    },
+
+    navResBtn() {
+      this.navStatus = true;
+      this.menuStatus = false;
+      this.searchStatus = false;
+    },
+
+    menuResBtn() {
+      this.menuStatus = true;
+      this.navStatus = false;
+    },
+
+    searchResBtn() {
+      this.searchStatus = !this.searchStatus;
+      this.navStatus = false;
+    },
+
+    navResBtnClose() {
+      this.navStatus = false;
+    },
+
+    menuResBtnClose() {
+      this.menuStatus = false;
     },
   },
 });

@@ -1,6 +1,6 @@
 <template>
   <div :class="['fixed flex justify-center items-center font-roboto top-0 z-50 bg-opacity-40 w-full h-screen bg-black', { hidden: !pengiriman }]">
-    <div class="w-[550px] bg-white py-7 px-6">
+    <div class="md:w-[550px] w-[90%] bg-white py-7 px-6">
       <div class="flex justify-between items-center">
         <h1 class="text-3xl font-neue mb-1">PILIH OPSI PENGIRIMAN</h1>
         <button @click="closePengirimanBtn">

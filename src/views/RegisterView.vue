@@ -1,6 +1,6 @@
 <template>
-  <form class="flex justify-between px-14 pt-40 pb-20 w-full">
-    <div class="w-[47%] p-8 border border-primary font-neue">
+  <form class="flex justify-between px-6 lg:px-14 pt-40 pb-20 w-full">
+    <div class="lg:w-[47%] w-full p-8 border border-primary font-neue">
       <h1 class="text-5xl mb-10">registrasi</h1>
       <h1 class="text-3xl mb-4">Nama Anda</h1>
       <input required type="text" class="w-full mb-8 px-6 py-4 shadow-md border border-primary font-roboto text-xl" placeholder="Masukan nama anda" />
@@ -32,6 +32,9 @@
           <p class="text-xl">Wanita</p>
         </label>
       </div>
+      <RouterLink to="/profile">
+        <button class="bg-black mb-8 text-white py-3 w-[200px] font-neue text-4xl">registrasi</button>
+      </RouterLink>
       <h1 class="text-4xl mb-6">ATAU</h1>
       <button class="flex mb-8 items-center border w-[250px] justify-between border-primary px-5 py-2">
         <h1 class="text-3xl mt-1">GOOGLE</h1>
@@ -42,7 +45,7 @@
         <img class="w-10" src="../../public/assets/icon_facebook.svg" alt="" />
       </button>
     </div>
-    <div class="w-[47%] font-roboto px-5">
+    <div class="w-[47%] hidden lg:block font-roboto px-5">
       <h1 class="text-5xl font-neue mb-7">BUAT AKUN</h1>
       <p class="text-xl mb-6">Sangat mudah. Masukkan alamat email Anda, isi formulir di halaman berikutnya dan nikmati keuntungan dari memiliki akun, misalnya:</p>
       <div class="flex gap-4 mb-9">
@@ -71,8 +74,6 @@
 <script setup>
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
-
-
 
 const pass = () => {
   passStat.value = !passStat.value;

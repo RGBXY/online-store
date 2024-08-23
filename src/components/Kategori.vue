@@ -1,5 +1,5 @@
 <template>
-  <div class="py-14 px-10 font-neue">
+  <div class="py-14 lg:px-10 px-6 font-neue">
     <h1 class="text-[40px]">KATEGORI</h1>
     <div class="flex gap-8 mt-10 justify-between no-scrollbar overflow-x-auto overflow-y-hidden">
       <div v-for="kategori in kategoris" :key="kategori.id" class="text-center w-[210px] shrink-0">

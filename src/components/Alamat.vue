@@ -1,6 +1,6 @@
 <template>
   <div :class="['fixed flex justify-center items-center font-roboto top-0 z-50 bg-opacity-40 w-full h-screen bg-black', { hidden: !alamat }]">
-    <div class="w-[600px] bg-white py-7 px-6">
+    <div class="lg:w-[600px] w-[90%] bg-white py-7 px-6">
       <div class="flex justify-between items-center mb-4">
         <h1 class="text-3xl font-neue mb-1">EDIT ALAMAT</h1>
         <button @click="closeAlamatBtn">

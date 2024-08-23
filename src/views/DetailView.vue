@@ -1,8 +1,8 @@
 <template>
-  <div class="pt-32 px-10 mb-10 flex flex-col justify-between w-full h-full font-roboto">
+  <div class="pt-32 px-6 lg:px-10 mb-10 flex flex-col justify-between w-full h-full font-roboto">
     <div class="flex flex-col justify-center lg:flex-row lg:justify-between gap-10 mb-16">
       <div class="w-full lg:w-[48%]">
-        <img class="w-full h-[450px] rounded-xl object-cover mb-4" src="../../public/assets/image_populer_2.png" alt="" />
+        <img class="w-full h-[300px] lg:h-[450px] rounded-xl object-cover mb-4" src="../../public/assets/image_populer_2.png" alt="" />
         <div class="flex justify-between">
           <img class="w-[30%] h-[120px] rounded-xl object-cover" src="../../public/assets/image_populer_2.png" alt="" />
           <img class="w-[30%] h-[120px] rounded-xl object-cover" src="../../public/assets/image_populer_2.png" alt="" />
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="border border-primary_border py-7 px-6 mb-7">
+    <div class="border border-primary_border py-7 px-4 lg:px-6 mb-7">
       <div class="flex gap-7 mb-7">
         <Link class="">DESKRIPSI</Link>
         <Link class="">ULASAN</Link>

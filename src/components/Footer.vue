@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full bg-primary pt-20 pb-28 text-white px-36">
-    <div class="flex mb-14 justify-between gap-16">
+  <div class="w-full bg-primary pt-20 pb-28 text-white px-6 lg:px-36">
+    <div class="flex flex-wrap mb-14 justify-between gap-16">
       <div class="font-neue">
         <h1 class="text-5xl -mb-1">ONLINE</h1>
         <p class="text-xl">STORE</p>
       </div>
-      <ul>
+      <ul class="">
         <li class="font-semibold mb-2">Halaman</li>
         <li class="font-thin text-sm mb-1 hover:underline"><a href="">Pria</a></li>
         <li class="font-thin text-sm mb-1 hover:underline"><a href="">Wanita</a></li>
