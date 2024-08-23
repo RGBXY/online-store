@@ -33,19 +33,19 @@
         <li class="font-semibold mb-3">Social Media</li>
         <div class="flex gap-6">
           <li class="font-thin items-center text-sm flex gap-2 mb-1">
-            <img class="w-[0.7rem]" src="../../public/assets/Path.svg" alt="" />
+            <img class="w-[0.7rem]" src="../../public/assets/icon_facebook.svg" alt="" />
           </li>
           <li class="font-thin items-center text-sm flex gap-2 mb-1">
-            <img class="w-5" src="../../public/assets/Shape.svg" alt="" />
+            <img class="w-5" src="../../public/assets/icon_instagram.svg" alt="" />
           </li>
           <li class="font-thin items-center text-sm flex gap-2 mb-1">
-            <img class="w-5" src="../../public/assets/Path-1.svg" alt="" />
+            <img class="w-5" src="../../public/assets/icon_twiter.svg" alt="" />
           </li>
           <li class="font-thin items-center text-sm flex gap-2 mb-1">
-            <img class="w-6" src="../../public/assets/Shape-1.svg" alt="" />
+            <img class="w-6" src="../../public/assets/icon_youtube.svg" alt="" />
           </li>
           <li class="font-thin items-center text-sm flex gap-2 mb-1">
-            <img class="w-5" src="../../public/assets/Bitmap.svg" alt="" />
+            <img class="w-5" src="../../public/assets/icon_wordpress.svg" alt="" />
           </li>
         </div>
       </ul>
