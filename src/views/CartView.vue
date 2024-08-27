@@ -4,7 +4,7 @@
     <div class="flex w-full flex-col-reverse lg:flex-row items-start justify-between">
       <div class="lg:w-[65%] w-full">
         <div class="shadow-md p-3 border mb-7 flex items-center gap-8">
-          <input type="checkbox" id="iyh" @change="toggleAll" class="radio-input" name="options" />
+          <input type="checkbox" id="select-all" @change="toggleAll" class="radio-input" name="options" />
           <p class="font-medium">
             Pilih Semua <span class="text-secondary">({{ total }} Barang)</span>
           </p>
@@ -12,7 +12,7 @@
         <div v-for="cart in carts" :key="cart.id" class="p-3 flex lg:flex-row flex-col justify-between shadow-md mb-6">
           <div class="flex flex-col gap-4 justify-between mb-4">
             <div class="flex items-center gap-14">
-              <input type="checkbox" :id="cart.id" class="radio-input" :value="cart.harga" name="options" @change="logValue($event, cart)" />
+              <input type="checkbox" :id="cart.id" class="radio-input" name="options" @change="logValue($event, cart)" />
               <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
             <div class="flex gap-4">
@@ -75,12 +75,12 @@ import Button from "@/components/Button.vue";
 import { useDummyFncStore } from "@/stores/DummyFnc";
 
 const dummy = useDummyFncStore();
+const data = useDataStore();
 
 const deleteCart = (cartId) => {
   dummy.deleteCartItem(cartId);
 };
 
-const data = useDataStore();
 const { carts } = storeToRefs(data);
 
 const totals = ref(0);
@@ -110,7 +110,7 @@ const logValue = (event, cart) => {
     }
   } else {
     selectedItems.value = selectedItems.value.filter((id) => id !== cart.id);
-    document.querySelectorAll("#radio-input").forEach((checkbox) => {
+    document.querySelectorAll("#select-all").forEach((checkbox) => {
       checkbox.checked = false;
     });
   }
