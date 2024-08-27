@@ -15,7 +15,7 @@
       </button>
       <a class="block lg:hidden mb-1 border-b-2 pb-4" :href="userStatus ? '/profile' : '/login'">
         <div v-if="userStatus" class="flex items-center gap-4">
-          <img class="h-10 w-10 rounded-full object-cover" :src="imageSrc" alt="" />
+          <img class="h-10 w-10 rounded-full object-cover" src="../../public/assets/image_kategori_3.png" alt="" />
           <p>Nama</p>
         </div>
         <div v-else class="flex items-center gap-4">
@@ -39,10 +39,10 @@
         <p>WANITA</p>
         <span class="w-0 absolute bottom-0.5 lg:bottom-1.5 group-hover:w-full h-0.5 bg-white transition-all"></span>
       </a>
-      <a href="/tentang-kami" class="relative group">
+      <RouterLink to="/tentang-kami" class="relative group">
         <p>TENTANG KAMI</p>
         <span class="w-0 absolute bottom-0.5 lg:bottom-1.5 group-hover:w-full h-0.5 bg-white transition-all"></span>
-      </a>
+      </RouterLink>
       <a class="relative group" href="">
         <p>BLOG</p>
         <span class="w-0 absolute bottom-0.5 lg:bottom-1.5 group-hover:w-full h-0.5 bg-white transition-all"></span>
@@ -69,7 +69,7 @@
         <img class="w-8" src="../../public/assets/icon_hamburger.svg" alt="" />
       </button>
       <RouterLink class="hidden lg:block" :to="userStatus ? '/profile' : '/login'">
-        <img v-if="userStatus" class="h-10 w-10 rounded-full object-cover" :src="imageSrc" alt="" />
+        <img v-if="userStatus" class="h-10 w-10 rounded-full object-cover" src="../../public/assets/image_kategori_3.png" alt="" />
         <img v-else class="h-8" src="../../public/assets/icon_profile.svg" alt="" />
       </RouterLink>
     </div>
@@ -102,7 +102,6 @@ if (localStorage.getItem("userStatus") === "true") {
   dummy.userStatus = true;
 }
 
-// Compute the image source URL based on the profile image in the store
 const imageSrc = computed(() => {
   return dummy.profileImage ? `../../public/assets/${dummy.profileImage}` : "";
 });

@@ -16,7 +16,7 @@
               <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
             <div class="flex gap-4">
-              <img class="w-[120px] h-[100px] object-cover" :src="cart.img" alt="" />
+              <img class="w-[120px] h-[100px] object-cover" src="../../public/assets/image_populer_2.png" alt="" />
               <div>
                 <h1 class="font-neue text-xl -mb-2">{{ cart.deskripsi }}</h1>
                 <p class="text-secondary font-medium">{{ cart.jenis }}</p>
@@ -98,7 +98,7 @@ const toggleAll = (event) => {
   });
 
   selectedItems.value = checkAll ? carts.value.map((cart) => cart.id) : [];
-  
+
   updateTotal();
 };
 

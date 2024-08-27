@@ -5,7 +5,7 @@
         <img class="w-10 mb-1.5" src="../../public/assets/icon_close.svg" alt="" />
       </button>
       <div class="flex items-center gap-3 w-full mb-4 lg:shadow-md border-b-2 p-4">
-        <img class="rounded-full w-16 h-16 object-cover" :src="imageSrc" alt="" />
+        <img class="rounded-full w-16 h-16 object-cover" src="../../public/assets/image_kategori_3.png" alt="" />
         <h1 class="font-semibold font-roboto text-xl">Jhon Doe</h1>
       </div>
       <div class="lg:shadow-md mb-10 p-5">

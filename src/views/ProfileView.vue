@@ -20,7 +20,7 @@
     <div class="flex flex-col lg:flex-row justify-between">
       <div class="lg:w-[40%] w-full mb-10 p-4 border border-primary_border">
         <!-- Display the profile image -->
-        <img class="mb-3 w-full h-[240px] object-cover" :src="imageSrc" alt="" />
+        <img class="mb-3 w-full h-[240px] object-cover" src="../../public/assets/image_kategori_3.png" alt="" />
         <input @change="handleFileChange" type="file" class="hidden" id="profile-pic" />
         <button class="bg-primary mb-5 text-white py-2 w-full font-neue text-xl">
           <label for="profile-pic" class="w-full block text-center cursor-pointer"> pilih foto </label>
