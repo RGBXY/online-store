@@ -54,7 +54,7 @@ export const useDataStore = defineStore("data", {
       },
       {
         id: 4,
-        img: "../../public/assets/image_kategori_4.png  ",
+        img: "../../public/assets/image_kategori_4.png",
         produk: "OUTERS",
         hargaDiskon: 200000,
         hargaAsli: 250000,

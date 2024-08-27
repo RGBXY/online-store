@@ -11,7 +11,7 @@
     </div>
     <div class="flex gap-8 justify-between overflow-x-auto no-scrollbar pb-5">
       <div v-for="populer in populers" :key="populer.id" class="relative w-[330px] overflow-hidden shrink-0 bg-white shadow-lg rounded-xl">
-        <img class="w-full h-[260px] object-cover" :src="populer.img" alt="" />
+        <img class="w-full h-[260px] object-cover" src="../../public/assets/image_populer_2.png" alt="" />
         <div class="flex justify-between items-center px-5 py-3">
           <div class="">
             <RouterLink to="/detail">
