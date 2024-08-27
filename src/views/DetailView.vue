@@ -119,70 +119,72 @@
               <h1 class="font-neue text-3xl">ULASAN PILIHAN</h1>
               <p class="font-medium">Menampilkan 3 dari 3 ulasan</p>
             </div>
-            <select class="border-2 w-[200px] items-end rounded-lg pr-2 py-1 border-primary_border" name="" id="">
-              <option value="">Terbaru</option>
-              <option value="">Terlama</option>
+            <select v-model="selected" class="border-2 w-[200px] items-end rounded-lg pr-2 py-1 border-primary_border" name="" id="select">
+              <option value="1">Terbaru</option>
+              <option value="2">Terlama</option>
             </select>
           </div>
-          <div class="mb-7">
-            <div class="flex gap-6 mb-4">
-              <div class="flex gap-3">
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+          <div :class="['flex', selected === '1' ? 'flex-col' : 'flex-col-reverse']">
+            <div class="mb-7">
+              <div class="flex gap-6 mb-4">
+                <div class="flex gap-3">
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                </div>
+                <p class="text-secondary">Hari Ini</p>
               </div>
-              <p class="text-secondary">Hari Ini</p>
-            </div>
-            <div class="flex items-center gap-4 mb-2">
-              <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_1.jpeg" alt="" />
-              <div>
-                <h1 class="text-lg font-semibold">Dika</h1>
-                <p class="text-lg text-secondary font-medium">Varian Uk: XL</p>
+              <div class="flex items-center gap-4 mb-2">
+                <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_1.jpeg" alt="" />
+                <div>
+                  <h1 class="text-lg font-semibold">Dika</h1>
+                  <p class="text-lg text-secondary font-medium">Varian Uk: XL</p>
+                </div>
               </div>
+              <p class="font-medium text-lg">Barang di packing sangat rapi kurir juga sangat ramah</p>
             </div>
-            <p class="font-medium text-lg">Barang di packing sangat rapi kurir juga sangat ramah</p>
-          </div>
-          <div class="mb-7">
-            <div class="flex gap-6 mb-4">
-              <div class="flex gap-3">
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+            <div class="mb-7">
+              <div class="flex gap-6 mb-4">
+                <div class="flex gap-3">
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                </div>
+                <p class="text-secondary">1 Minggu lalu</p>
               </div>
-              <p class="text-secondary">1 Minggu lalu</p>
-            </div>
-            <div class="flex items-center gap-4 mb-2">
-              <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_2.jpeg" alt="" />
-              <div>
-                <h1 class="text-lg font-semibold">Reza</h1>
-                <p class="text-lg text-secondary font-medium">Varian Uk: XXL</p>
+              <div class="flex items-center gap-4 mb-2">
+                <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_2.jpeg" alt="" />
+                <div>
+                  <h1 class="text-lg font-semibold">Reza</h1>
+                  <p class="text-lg text-secondary font-medium">Varian Uk: XXL</p>
+                </div>
               </div>
+              <p class="font-medium text-lg">Bahan Jaket nya bagus sesuai dengan yang ada di deskripsi</p>
             </div>
-            <p class="font-medium text-lg">Bahan Jaket nya bagus sesuai dengan yang ada di deskripsi</p>
-          </div>
-          <div class="mb-7">
-            <div class="flex gap-6 mb-4">
-              <div class="flex gap-3">
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star_gray.svg" alt="" />
-                <img class="w-6" src="../../public/assets/icon_star_gray.svg" alt="" />
+            <div class="mb-7">
+              <div class="flex gap-6 mb-4">
+                <div class="flex gap-3">
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star_gray.svg" alt="" />
+                  <img class="w-6" src="../../public/assets/icon_star_gray.svg" alt="" />
+                </div>
+                <p class="text-secondary">1 Bulan lalu</p>
               </div>
-              <p class="text-secondary">1 Bulan lalu</p>
-            </div>
-            <div class="flex items-center gap-4 mb-2">
-              <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_3.jpeg" alt="" />
-              <div>
-                <h1 class="text-lg font-semibold">Phalevi</h1>
-                <p class="text-lg text-secondary font-medium">Varian Uk: L</p>
+              <div class="flex items-center gap-4 mb-2">
+                <img class="w-14 h-14 object-cover rounded-full" src="../../public/assets/image_ulasan_3.jpeg" alt="" />
+                <div>
+                  <h1 class="text-lg font-semibold">Phalevi</h1>
+                  <p class="text-lg text-secondary font-medium">Varian Uk: L</p>
+                </div>
               </div>
+              <p class="font-medium text-lg">Packingnya kurang rapi</p>
             </div>
-            <p class="font-medium text-lg">Packingnya kurang rapi</p>
           </div>
         </div>
       </div>
@@ -345,5 +347,10 @@
 <script setup>
 import Button from "@/components/Button.vue";
 import Link from "@/components/Link.vue";
+import { ref, watch } from "vue";
 import { RouterLink } from "vue-router";
+
+const selected = ref("1");
+
+
 </script>
