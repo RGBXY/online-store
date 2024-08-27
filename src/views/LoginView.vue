@@ -8,7 +8,10 @@
       <h1 class="text-3xl mb-4">MASUKAN PASSWORD</h1>
       <input required type="password" class="w-full mb-8 px-6 py-5 shadow-md border border-primary font-roboto text-xl" placeholder="Masukan kata sandi anda" />
       <p class="font-roboto text-xl mb-8">Kata sandi minimal 8 karakter dan terdiri dari huruf dan angka. Hanya simbol -_.@ yang dapat digunakan.</p>
-      <button @click="dummyLoginBtn" class="bg-black mb-8 text-white py-3 w-[200px] text-4xl">Login</button>
+      <RouterLink to="/profile">
+        <button @click="dummyLoginBtn" class="bg-black mb-8 text-white py-3 w-[200px] text-4xl">Login</button>
+      </RouterLink>
+
       <h1 class="text-4xl mb-6">ATAU</h1>
       <button class="flex mb-8 items-center border w-[250px] justify-between border-primary px-5 py-2">
         <h1 class="text-3xl mt-1">GOOGLE</h1>

@@ -3,23 +3,23 @@
     <div class="flex flex-row overflow-x-auto no-scrollbar justify-between gap-10 mb-9">
       <a class="relative group" href="">
         <p class="font-neue lg:text-3xl text-xl">SEMUA</p>
-        <span class="absolute w-full h-1 bg-black transition-all"></span>
+        <span class="absolute w-full h-1 bottom-0 bg-black transition-all"></span>
       </a>
       <a class="relative group" href="">
         <p class="font-neue text-secondary lg:text-3xl inline text-xl text">SEDANG DIKEMAS</p>
-        <span class="w-0 absolute group-hover:w-full h-1 bg-secondary transition-all"></span>
+        <span class="w-0 absolute group-hover:w-full bottom-0 right-0 left-0 h-1 bg-secondary transition-all"></span>
       </a>
       <a class="relative group" href="">
         <p class="font-neue text-secondary lg:text-3xl text-xl text">DIKIRIM</p>
-        <span class="w-0 absolute group-hover:w-full h-1 bg-secondary transition-all"></span>
+        <span class="w-0 absolute group-hover:w-full bottom-0 right-0 left-0 h-1 bg-secondary transition-all"></span>
       </a>
       <a class="relative group" href="">
         <p class="font-neue text-secondary lg:text-3xl text-xl text">SELESAI</p>
-        <span class="w-0 absolute group-hover:w-full h-1 bg-secondary transition-all"></span>
+        <span class="w-0 absolute group-hover:w-full bottom-0 right-0 left-0 h-1 bg-secondary transition-all"></span>
       </a>
       <a class="relative group" href="">
         <p class="font-neue text-secondary lg:text-3xl text-xl text">DIBATALKAN</p>
-        <span class="w-0 absolute group-hover:w-full h-1 bg-secondary transition-all"></span>
+        <span class="w-0 absolute group-hover:w-full bottom-0 right-0 left-0 h-1 bg-secondary transition-all"></span>
       </a>
     </div>
 

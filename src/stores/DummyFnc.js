@@ -8,7 +8,7 @@ export const useDummyFncStore = defineStore("dummyFnc", {
     menuStatus: false,
     searchStatus: false,
     profileImage: localStorage.getItem("profileImage") || "",
-    cartsdat: [], 
+    cartsdat: [],
   }),
 
   actions: {
@@ -24,10 +24,6 @@ export const useDummyFncStore = defineStore("dummyFnc", {
     logout() {
       this.userStatus = false;
       localStorage.setItem("userStatus", JSON.stringify(this.userStatus));
-
-      if (!this.userStatus) {
-        window.location.href = "/login";
-      }
     },
 
     updateProfileImage(file) {

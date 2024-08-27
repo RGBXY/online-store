@@ -33,15 +33,17 @@
           <img class="w-7 -ml-1" src="../../public/assets/icon_notif_black.svg" alt="" />
           <h1 class="font-neue text-2xl">NOTIFIKASI</h1>
         </div>
-        <a href="/status-pesanan" class="flex items-center gap-3 mb-1">
+        <RouterLink to="/status-pesanan" class="flex items-center gap-3 mb-1">
           <div class="w-2 h-2 bg-secondary rounded-full"></div>
           <h1 class="text-lg text-secondary font-semibold">Status Pesanan</h1>
-        </a>
+        </RouterLink>
         <a href="#" class="flex items-center gap-3 mb-6">
           <div class="w-2 h-2 bg-secondary rounded-full"></div>
           <h1 class="text-lg text-secondary font-semibold">Promo</h1>
         </a>
-        <Button @click="logout">Logout</Button>
+        <RouterLink to="/login">
+          <Button @click="logout">Logout</Button>
+        </RouterLink>
       </div>
     </div>
     <div class="lg:w-[70%] w-full font-roboto border border-primary_border p-7">
@@ -59,7 +61,7 @@ import { computed } from "vue";
 
 const dummy = useDummyFncStore();
 
-const { profileImage, menuStatus } = storeToRefs(dummy);
+const { profileImage, menuStatus, userStatus } = storeToRefs(dummy);
 
 const menuResBtnClose = () => {
   dummy.menuResBtnClose();
