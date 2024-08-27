@@ -6,8 +6,8 @@
     </RouterLink>
     <div
       :class="[
-        'flex fixed lg:static flex-col text-[22px] transition-all duration-300 ease-in-out lg:border-none border-l-2 border-white lg:text-[28px] right-0 lg:flex-row top-0 h-screen lg:h-auto bg-primary lg:bg-transparent lg:w-auto w-[60%] py-5 px-5 lg:p-0 gap-4 lg:gap-8',
-        { '-right-[1000px]': !navStatus },
+        'flex fixed lg:static flex-col text-[22px] transition-all duration-300 ease-in-out lg:border-none border-l-2 border-white lg:text-[28px] lg:flex-row top-0 h-screen lg:h-auto bg-primary lg:bg-transparent lg:w-auto w-[60%] py-5 px-5 lg:p-0 gap-4 lg:gap-8',
+        navStatus ? 'right-0' : ' -right-[1000px]',
       ]"
     >
       <button @click="navResBtnClose" class="w-full lg:hidden flex justify-end mt-1 mb-2">

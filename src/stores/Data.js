@@ -73,4 +73,12 @@ export const useDataStore = defineStore("data", {
       },
     ],
   }),
+  actions: {
+    addCartItem(cart) {
+      this.carts.push(cart);
+    },
+    removeCartItem(id) {
+      this.carts = this.carts.filter((cart) => cart.id !== id);
+    },
+  },
 });

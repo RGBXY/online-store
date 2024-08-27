@@ -1,6 +1,6 @@
 <template>
   <div class="pt-32 px-6 lg:px-10 mb-10 flex justify-between w-full h-full">
-    <div :class="['lg:w-[25%] w-[60%] bg-white top-20 left-0 h-screen z-30 lg:h-auto lg:p-0 pt-5 fixed lg:static transition-all duration-300 ease-in-out', { '-left-[1000px]': !menuStatus }]">
+    <div :class="['lg:w-[25%] w-[60%] bg-white top-20 h-screen z-30 lg:h-auto lg:p-0 pt-5 fixed lg:static transition-all duration-300 ease-in-out', menuStatus ? 'left-0 ' : '-left-[1000px]']">
       <button @click="menuResBtnClose" class="lg:hidden ms-4 flex justify-end w-full pr-6">
         <img class="w-10 mb-1.5" src="../../public/assets/icon_close.svg" alt="" />
       </button>

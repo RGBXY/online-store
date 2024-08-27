@@ -4,15 +4,15 @@
     <div class="flex w-full flex-col-reverse lg:flex-row items-start justify-between">
       <div class="lg:w-[65%] w-full">
         <div class="shadow-md p-3 border mb-7 flex items-center gap-8">
-          <input type="checkbox" class="radio-input" value="wanita" name="options" />
+          <input type="checkbox" id="iyh" @change="toggleAll" class="radio-input" name="options" />
           <p class="font-medium">
-            Pilih Semua <span class="text-secondary">({{ totalUniqueProducts }} Barang)</span>
+            Pilih Semua <span class="text-secondary">({{ total }} Barang)</span>
           </p>
         </div>
         <div v-for="cart in carts" :key="cart.id" class="p-3 flex lg:flex-row flex-col justify-between shadow-md mb-6">
           <div class="flex flex-col gap-4 justify-between mb-4">
             <div class="flex items-center gap-14">
-              <input type="checkbox" class="radio-input" value="1" name="options" />
+              <input type="checkbox" :id="cart.id" class="radio-input" :value="cart.harga" name="options" @change="logValue($event, cart)" />
               <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
             <div class="flex gap-4">
@@ -26,7 +26,7 @@
           <div class="flex flex-row items-center lg:flex-col justify-between">
             <h1 class="font-medium text-xl">Rp. {{ cart.harga }}</h1>
             <div class="flex gap-5 items-end justify-end">
-              <button class="mb-1.5">
+              <button @click="deleteCart(cart.id)" class="mb-1.5">
                 <img src="../../public/assets/icon_trash.svg" alt="" />
               </button>
               <div class="border border-primary py-1 px-2 rounded-lg flex items-center gap-3">
@@ -68,36 +68,76 @@
 </template>
 
 <script setup>
-import Button from "@/components/Button.vue";
+import { ref, computed, watch } from "vue";
 import { useDataStore } from "@/stores/Data";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
+import Button from "@/components/Button.vue";
+import { useDummyFncStore } from "@/stores/DummyFnc";
+
+const dummy = useDummyFncStore();
+
+const deleteCart = (cartId) => {
+  dummy.deleteCartItem(cartId);
+};
 
 const data = useDataStore();
 const { carts } = storeToRefs(data);
-const totalUniqueProducts = computed(() => carts.value.length);
+
+const totals = ref(0);
+const selectedItems = ref([]);
+
+const updateTotal = () => {
+  totals.value = carts.value.filter((cart) => selectedItems.value.includes(cart.id)).reduce((total, cart) => total + cart.harga * cart.jumlah, 0);
+};
+
+const toggleAll = (event) => {
+  const checkAll = event.target.checked;
+
+  document.querySelectorAll(".radio-input").forEach((checkbox) => {
+    checkbox.checked = checkAll;
+  });
+
+  selectedItems.value = checkAll ? carts.value.map((cart) => cart.id) : [];
+  
+  updateTotal();
+};
+
+const logValue = (event, cart) => {
+  const isChecked = event.target.checked;
+  if (isChecked) {
+    if (!selectedItems.value.includes(cart.id)) {
+      selectedItems.value.push(cart.id);
+    }
+  } else {
+    selectedItems.value = selectedItems.value.filter((id) => id !== cart.id);
+    document.querySelectorAll("#radio-input").forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  }
+  updateTotal();
+};
 
 const plus = (cart) => {
   cart.jumlah++;
+  if (selectedItems.value.includes(cart.id)) {
+    totals.value += cart.harga;
+  }
 };
 
 const minus = (cart) => {
   if (cart.jumlah > 1) {
     cart.jumlah--;
+    if (selectedItems.value.includes(cart.id)) {
+      totals.value -= cart.harga;
+    }
   }
 };
 
-const total = computed(() => {
-  return carts.value.reduce((total, cart) => {
-    return total + cart.jumlah;
-  }, 0);
-});
+const total = computed(() => carts.value.reduce((total, cart) => total + cart.jumlah, 0));
 
-const totalPrice = computed(() => {
-  return carts.value.reduce((total, cart) => {
-    return total + cart.harga * cart.jumlah;
-  }, 0);
-});
+const totalPrice = computed(() => totals.value);
+
+watch(carts, () => updateTotal());
 </script>
 
 <style scoped>

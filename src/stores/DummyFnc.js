@@ -8,7 +8,7 @@ export const useDummyFncStore = defineStore("dummyFnc", {
     menuStatus: false,
     searchStatus: false,
     profileImage: localStorage.getItem("profileImage") || "",
-    cartsdat: [],
+    cartsdat: [], 
   }),
 
   actions: {
@@ -16,7 +16,7 @@ export const useDummyFncStore = defineStore("dummyFnc", {
       this.userStatus = true;
       localStorage.setItem("userStatus", JSON.stringify(this.userStatus));
 
-      if (this.userStatus === true) {
+      if (this.userStatus) {
         window.location.href = "/profile";
       }
     },
@@ -25,7 +25,7 @@ export const useDummyFncStore = defineStore("dummyFnc", {
       this.userStatus = false;
       localStorage.setItem("userStatus", JSON.stringify(this.userStatus));
 
-      if (this.userStatus === false) {
+      if (!this.userStatus) {
         window.location.href = "/login";
       }
     },
@@ -37,12 +37,12 @@ export const useDummyFncStore = defineStore("dummyFnc", {
     },
 
     cart() {
-      const data = useDataStore();
-      let id = 1;
+      const data = useDataStore(); // Accessing the store directly might cause issues, use composable if needed
+      const id = Date.now(); // Use timestamp or UUID for unique ID
 
       // The object you want to add
       const newCartItem = {
-        id: id++,
+        id: id,
         harga: 200000,
         produk: "DENIM JACKET",
         img: "../../public/assets/image_populer_2.png",
@@ -51,11 +51,21 @@ export const useDummyFncStore = defineStore("dummyFnc", {
         jumlah: 1,
       };
 
-      // Add the new object to the carts array
+      // Add the new object to the carts array in Data store
       data.carts.push(newCartItem);
 
       // Update local state and log the updated array
       this.cartsdat = data.carts;
+    },
+
+    removeCartItem(id) {
+      this.carts = this.carts.filter((cart) => cart.id !== id);
+    },
+
+    deleteCartItem(cartId) {
+      const data = useDataStore(); // Accessing the store
+      data.removeCartItem(cartId); // Use action from the Data store
+      this.cartsdat = data.carts; // Update local state if needed
     },
 
     navResBtn() {
