@@ -15,10 +15,6 @@ export const useDummyFncStore = defineStore("dummyFnc", {
     setUserStat() {
       this.userStatus = true;
       localStorage.setItem("userStatus", JSON.stringify(this.userStatus));
-
-      if (this.userStatus) {
-        window.location.href = "/profile";
-      }
     },
 
     logout() {
