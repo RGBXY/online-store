@@ -6,9 +6,10 @@
       }"
       :loop="true"
       :autoplay="{
-        delay: 10000,
+        delay: 5000,
         disableOnInteraction: false,
       }"
+      :slidesPerView="'auto'"
       :modules="modules"
       class="mySwiper bg-red-200 h-full flex justify-center items-center text-center font-neue text-white"
     >
