@@ -12,7 +12,7 @@
         <div v-for="cart in carts" :key="cart.id" class="p-3 flex lg:flex-row flex-col justify-between shadow-md mb-6">
           <div class="flex flex-col gap-4 justify-between mb-4">
             <div class="flex items-center gap-14">
-              <input type="checkbox" :id="cart.id" class="radio-input" name="options" @change="logValue($event, cart)" />
+              <input type="checkbox" id="halo" class="radio-input" name="options" @change="logValue($event, cart)" />
               <h1 class="font-neue text-3xl">{{ cart.produk }}</h1>
             </div>
             <div class="flex gap-4">
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="flex flex-row items-center lg:flex-col justify-between">
-            <h1 class="font-medium text-xl">Rp. {{ cart.harga }}</h1>
+            <h1 class="font-medium text-xl">{{ formatRupiah(cart.harga) }}</h1>
             <div class="flex gap-5 items-end justify-end">
               <button @click="deleteCart(cart.id)" class="mb-1.5">
                 <img src="../../public/assets/icon_trash.svg" alt="" />
@@ -51,12 +51,12 @@
         <h1 class="font-neue text-2xl mb-1">RINGKASAN PESANAN</h1>
         <div class="flex items-center justify-between mb-4">
           <p class="text-secondary font-medium">Subtotal ({{ total }} barang)</p>
-          <h1 class="font-medium">Rp.{{ totalPrice }}</h1>
+          <h1 class="font-medium">{{ totalPrice }}</h1>
         </div>
         <p class="text-secondary font-medium mb-4">Biaya Pengiriman</p>
         <div class="flex items-center justify-between mb-6">
           <p class="font-medium font-neue text-2xl">TOTAL</p>
-          <h1 class="font-semibold">Rp.{{ totalPrice }}</h1>
+          <h1 class="font-semibold">{{ totalPrice }}</h1>
         </div>
         <RouterLink to="/payment">
           <p class="text-sm font-medium text-end">Termasuk PPN, jika berlaku</p>
@@ -104,6 +104,7 @@ const toggleAll = (event) => {
 
 const logValue = (event, cart) => {
   const isChecked = event.target.checked;
+
   if (isChecked) {
     if (!selectedItems.value.includes(cart.id)) {
       selectedItems.value.push(cart.id);
@@ -114,6 +115,15 @@ const logValue = (event, cart) => {
       checkbox.checked = false;
     });
   }
+
+  const allChecked = Array.from(document.querySelectorAll("#halo")).every((checkbox) => checkbox.checked);
+
+  if (allChecked) {
+    document.querySelectorAll("#select-all").forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+  }
+
   updateTotal();
 };
 
@@ -133,9 +143,17 @@ const minus = (cart) => {
   }
 };
 
+const formatRupiah = (angka) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(angka);
+};
+
 const total = computed(() => carts.value.reduce((total, cart) => total + cart.jumlah, 0));
 
-const totalPrice = computed(() => totals.value);
+const totalPrice = computed(() => formatRupiah(totals.value));
 
 watch(carts, () => updateTotal());
 </script>
