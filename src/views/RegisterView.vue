@@ -72,8 +72,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const pass = () => {
   passStat.value = !passStat.value;

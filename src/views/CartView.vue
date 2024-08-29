@@ -73,6 +73,11 @@ import { useDataStore } from "@/stores/Data";
 import { storeToRefs } from "pinia";
 import Button from "@/components/Button.vue";
 import { useDummyFncStore } from "@/stores/DummyFnc";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const dummy = useDummyFncStore();
 const data = useDataStore();

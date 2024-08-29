@@ -83,12 +83,17 @@ import Alamat from "@/components/Alamat.vue";
 import Button from "@/components/Button.vue";
 import Pengiriman from "@/components/Pengiriman.vue";
 import { usePopupStore } from "@/stores/Popup";
+import { onMounted } from "vue";
 
 const popup = usePopupStore();
 
 const pengirimanBtn = () => {
   popup.pengirimanBtn();
 };
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const alamatBtn = () => {
   popup.alamatBtn();

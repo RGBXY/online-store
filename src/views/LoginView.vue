@@ -56,10 +56,15 @@
 import { RouterLink } from "vue-router";
 import { useDummyFncStore } from "@/stores/DummyFnc";
 import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 
 const dummy = useDummyFncStore();
 
 const { userStatus } = storeToRefs(dummy);
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const dummyLoginBtn = () => {
   dummy.setUserStat();

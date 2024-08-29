@@ -55,10 +55,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useDummyFncStore } from "@/stores/DummyFnc";
 import ProfileLay from "@/components/ProfileLay.vue";
 import Button from "@/components/Button.vue";
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 // Initialize the store
 const dummy = useDummyFncStore();

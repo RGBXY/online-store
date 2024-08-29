@@ -349,6 +349,11 @@ import Button from "@/components/Button.vue";
 import Link from "@/components/Link.vue";
 import { ref, watch } from "vue";
 import { RouterLink } from "vue-router";
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const selected = ref("1");
 
